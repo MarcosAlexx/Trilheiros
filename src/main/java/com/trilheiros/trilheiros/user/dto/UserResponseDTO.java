@@ -10,6 +10,6 @@ public record UserResponseDTO(
         Integer age,
         String city,
         String state,
-        LocalDateTime dateCreated
+        LocalDateTime createdAt
 ) {
 }
