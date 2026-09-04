@@ -2,6 +2,7 @@ package com.trilheiros.trilheiros.user.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.data.repository.Repository;
 
 import java.time.LocalDateTime;
 
@@ -44,3 +45,4 @@ public class User {
     private LocalDateTime createdAt;
 
 }
+
