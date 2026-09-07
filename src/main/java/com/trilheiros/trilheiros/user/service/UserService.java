@@ -56,7 +56,6 @@ public class UserService{
         User user = this.userRepository.findByEmail(email)
                 .orElseThrow(() -> new UserNotFoundException(email));
 
-
         String hashedPassword = passwordEncoder.encode(userRegisterDTO.password());
 
         user.setName(userRegisterDTO.name());
