@@ -43,18 +43,19 @@ public class UserService{
 
 
     @Transactional
-    public UserResponseDTO getUserByEmail(UserRegisterDTO userRegisterDTO) {
-        User user = this.userRepository.findByEmail(userRegisterDTO.email())
-                .orElseThrow(() -> new UserNotFoundException(userRegisterDTO.email()));
+    public UserResponseDTO getUserByEmail(String email) {
+        User user = this.userRepository.findByEmail(email)
+                .orElseThrow(() -> new UserNotFoundException(email));
 
         return new UserResponseDTO(user.getId(), user.getName(), user.getEmail(), user.getWhatsapp(), user.getAge(), user.getCity(), user.getState(), user.getCreatedAt());
     }
 
 
     @Transactional
-    public UserResponseDTO update(UserRegisterDTO userRegisterDTO) {
-        User user = this.userRepository.findByEmail(userRegisterDTO.email())
-                .orElseThrow(() -> new UserNotFoundException(userRegisterDTO.email()));
+    public UserResponseDTO update(String email, UserRegisterDTO userRegisterDTO) {
+        User user = this.userRepository.findByEmail(email)
+                .orElseThrow(() -> new UserNotFoundException(email));
+
 
         String hashedPassword = passwordEncoder.encode(userRegisterDTO.password());
 
@@ -71,9 +72,9 @@ public class UserService{
 
 
     @Transactional
-    public void delete(UserRegisterDTO userRegisterDTO) {
-        User user = userRepository.findByEmail(userRegisterDTO.email())
-                .orElseThrow(() -> new UserNotFoundException(userRegisterDTO.email()));
+    public void delete(String email) {
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new UserNotFoundException(email));
 
         userRepository.delete(user);
     }
