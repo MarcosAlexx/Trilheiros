@@ -1,4 +1,4 @@
-package com.trilheiros.trilheiros.trail.entity.entity;
+package com.trilheiros.trilheiros.trail.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
