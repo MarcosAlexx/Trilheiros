@@ -7,4 +7,7 @@ import java.util.Optional;
 
 public interface UserTrailRepository extends JpaRepository<UserTrail, Long> {
 
+    Optional<UserTrail> findByUserIdAndTrailId(Long userId, Long trailId);
+
+    List<UserTrail> findByUserId(Long userId);
 }
